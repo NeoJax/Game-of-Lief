@@ -1,0 +1,14 @@
+h1 {
+  margin: 0%;
+  line-height: 0.35em;
+}
+
+.button-grid {
+  position: relative;
+  height: 1em;
+  width: 1em;
+  background: white;
+  border: 1px solid black;
+  float: left;
+  display: block;
+}
