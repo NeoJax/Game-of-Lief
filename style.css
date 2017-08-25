@@ -10,5 +10,9 @@ h1 {
   background: white;
   border: 1px solid black;
   float: left;
-  display: block;
+  display: grid;
+}
+
+.button-grid.black {
+  background-color: black;
 }
