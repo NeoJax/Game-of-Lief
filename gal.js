@@ -1,11 +1,19 @@
+
 $(document).ready(function(){
+  make_grid($("#text1").val(),$("#text2").val());
   $("#btn1").click(function(){
     make_grid($("#text1").val(),$("#text2").val()); });
   $("#btn2").click(function(){
     $("h1").empty(); });
   $("#btn3").click(function(){
-    check($("#text1").val(),$("#text2").val());
-  })
+    check($("#text1").val(),$("#text2").val()); });
+  $("#checked").click(function(){
+    if($(this).is(":checked")){
+      constant(true);
+    } else if($(this).is(":not(:checked)")) {
+      constant(false);
+    }
+  });
   $('h1').on("click", "button", function(){
     $(this).toggleClass("black");
   });
@@ -33,15 +41,16 @@ function check(rows, columns){
     var num = 1;
     for(let i = 0; i < rows; i++){
       for(let j = 0; j < columns; j++){
-        var tl = document.getElementById(num-26);
-        var tm = document.getElementById(num-25);
-        var tr = document.getElementById(num-24);
+        var tl = document.getElementById(num-rows-1);
+        var tm = document.getElementById(num-rows);
+        var tr = document.getElementById(num-rows+1);
         var ml = document.getElementById(num-1);
         var current = document.getElementById(num);
+        rows = parseInt(rows);
         var mr = document.getElementById(num+1);
-        var bl = document.getElementById(num+24);
-        var bm = document.getElementById(num+25);
-        var br = document.getElementById(num+26);
+        var bl = document.getElementById(num+rows-1);
+        var bm = document.getElementById(num+rows);
+        var br = document.getElementById(num+rows+1);
         var life = 0;
         if($(tl).css("background-color") === "rgb(0, 0, 0)"){
           life++;
@@ -101,4 +110,12 @@ function generateCells(array){
       $(array[i]).toggleClass("black");
     }
   });
+}
+
+function constant(run){
+  if(run === true){
+    //setInterval(function(check($("#text1").val(),$("#text2").val())), 5000);
+  } else if (run === false){
+    clearInterval(running);
+  }
 }
