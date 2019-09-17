@@ -18,7 +18,8 @@ $(document).ready(function(){
     $(this).toggleClass("black");
   });
 });
-function make_grid(rows, columns){
+
+function make_grid(rows, columns) {
   var count = 1;
   $('h1').empty();
   for(let i = 0; i < rows; i++){
